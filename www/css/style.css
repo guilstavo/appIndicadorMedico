@@ -1,0 +1,20 @@
+.bar.bar-stable{
+	background-color: #006C67;
+}
+.bar.bar-stable .title{
+	color: #FFF;
+	text-align: center;
+}
+.bar-stable .button,
+.bar-stable .button:hover{
+	color: #FFF;
+}
+.logo{
+	text-align: center;
+}
+.platform-ios .platform-nav {
+    display: block;
+}
+.platform-android .platform-nav {
+    display: none;
+}

@@ -13,10 +13,22 @@ angular.module('app.controllers', [])
 	})
 })
    
-.controller('especialidadeCtrl', function($scope) {
-	
+.controller('especialidadeCtrl', function($scope, $stateParams, $http) {
+	$scope.medicos = [];
+	$http.get('http://apmsantos.org.br/indicadorMedico/webservice/medicosEspecialistas/' + $stateParams.especialidadeId)
+	.success(function(medicos){
+		$scope.medicos = medicos;
+	}).error(function(erro){
+		console.log(erro);
+	})
 })
    
-.controller('mDicoCtrl', function($scope) {
-
+.controller('mDicoCtrl', function($scope, $stateParams, $http) {
+	$scope.medico = [];
+	$http.get('http://apmsantos.org.br/indicadorMedico/webservice/' + $stateParams.medicoId)
+	.success(function(medico){
+		$scope.medico = medico;
+	}).error(function(erro){
+		console.log(erro);
+	})
 })

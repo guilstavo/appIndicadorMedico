@@ -14,16 +14,17 @@ angular.module('app.routes', [])
     url: '/index',
     templateUrl: 'templates/indicadorMDico.html',
     controller: 'indicadorMDicoCtrl'
+
   })
 
   .state('especialidade', {
-    url: '/listaMedicos',
+    url: '/listaMedicos/:especialidadeId',
     templateUrl: 'templates/especialidade.html',
     controller: 'especialidadeCtrl'
   })
 
   .state('mDico', {
-    url: '/medico',
+    url: '/medico:medicoId',
     templateUrl: 'templates/mDico.html',
     controller: 'mDicoCtrl'
   })

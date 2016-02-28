@@ -18,15 +18,15 @@ angular.module('app.routes', [])
   })
 
   .state('especialidade', {
-    url: '/listaMedicos/:especialidadeId',
+    url: '/listaMedicos/:especialidadeId?especialidadeNome',
     templateUrl: 'templates/especialidade.html',
     controller: 'especialidadeCtrl'
   })
 
-  .state('mDico', {
+  .state('medico', {
     url: '/medico:medicoId',
-    templateUrl: 'templates/mDico.html',
-    controller: 'mDicoCtrl'
+    templateUrl: 'templates/medico.html',
+    controller: 'medicoCtrl'
   })
 
 $urlRouterProvider.otherwise('/index')

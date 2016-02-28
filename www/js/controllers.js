@@ -14,6 +14,7 @@ angular.module('app.controllers', [])
 })
    
 .controller('especialidadeCtrl', function($scope, $stateParams, $http) {
+	$scope.nomeEspecialidade = $stateParams.especialidadeNome;
 	$scope.medicos = [];
 	$http.get('http://apmsantos.org.br/indicadorMedico/webservice/medicosEspecialistas/' + $stateParams.especialidadeId)
 	.success(function(medicos){
@@ -23,9 +24,9 @@ angular.module('app.controllers', [])
 	})
 })
    
-.controller('mDicoCtrl', function($scope, $stateParams, $http) {
+.controller('medicoCtrl', function($scope, $stateParams, $http) {
 	$scope.medico = [];
-	$http.get('http://apmsantos.org.br/indicadorMedico/webservice/' + $stateParams.medicoId)
+	$http.get('http://apmsantos.org.br/indicadorMedico/webservice/medico/' + $stateParams.medicoId)
 	.success(function(medico){
 		$scope.medico = medico;
 	}).error(function(erro){

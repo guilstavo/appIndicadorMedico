@@ -1,7 +1,7 @@
-<ion-view style="" title="Nome Especialidade">
+<ion-view style="" title="{{nomeEspecialidade}}">
     <ion-content class="has-header" overflow-scroll="true" padding="false">
         <ion-list style="">
-            <ion-item ng-repeat="medico in medicos" ui-sref="mDico({medico: {{medico.medid}}})">{{medico.nome}}</ion-item>
+            <ion-item ng-repeat="medico in medicos" ui-sref="medico({medicoId: {{medico.medid}}})">{{medico.nome}}</ion-item>
         </ion-list>
     </ion-content>
 </ion-view>

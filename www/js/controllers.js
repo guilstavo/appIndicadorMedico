@@ -1,54 +1,77 @@
 angular.module('app.controllers', [])
   
-.controller('indicadorMDicoCtrl', function($scope, $ionicNavBarDelegate, $http) {
+.controller('indicadorMDicoCtrl', function($scope, $ionicNavBarDelegate, getEspecialidades) {
 	var isIOS = ionic.Platform.isIOS();
 	$ionicNavBarDelegate.showBackButton(isIOS);
 	//window.localStorage.clear();
+
 	$scope.especialidades = [];
 	especialidades = JSON.parse(window.localStorage.getItem( 'especialidades' ));
 	if(especialidades != null){
 		$scope.especialidades = especialidades;
 	}else{
-		$http.get('http://apmsantos.org.br/indicadorMedico/webservice/especialidades')
-		.success(function(especialidades){
-			window.localStorage.setItem( 'especialidades', JSON.stringify(especialidades) );
-			$scope.especialidades = especialidades;
-		}).error(function(erro){
-			console.log(erro);
+		getEspecialidades.buscar()
+		.then(function(dados){
+			window.localStorage.setItem( 'especialidades', JSON.stringify(dados.especialidades) );
+			$scope.especialidades = dados.especialidades;
 		})
-	}
+	};
+	$scope.doRefresh = function() {
+
+		getEspecialidades.buscar()
+		.then(function(dados){
+			window.localStorage.setItem( 'especialidades', JSON.stringify(dados.especialidades) );
+			$scope.especialidades = dados.especialidades;
+		}).finally(function() {
+	       $scope.$broadcast('scroll.refreshComplete');
+	     });
+	};
 })
    
-.controller('especialidadeCtrl', function($scope, $stateParams, $http) {
-	$scope.medicos = [];
-	medicos = JSON.parse(window.localStorage.getItem( 'medicos'+ $stateParams.especialidadeId ));
+.controller('especialidadeCtrl', function($scope, $stateParams, getMedicos) {
+	var id = $stateParams.especialidadeId;
+	medicos = JSON.parse(window.localStorage.getItem( 'medicos' + id ));
 	if(medicos != null){
 		$scope.medicos = medicos;
 	}else{
 		$scope.nomeEspecialidade = $stateParams.especialidadeNome;
-		$http.get('http://apmsantos.org.br/indicadorMedico/webservice/medicosEspecialistas/' + $stateParams.especialidadeId)
-		.success(function(medicos){
-			window.localStorage.setItem( 'medicos'+ $stateParams.especialidadeId, JSON.stringify(medicos) );
-			$scope.medicos = medicos;
-		}).error(function(erro){
-			console.log(erro);
+		getMedicos.buscar(id)
+		.then(function(dados){
+			window.localStorage.setItem( 'medicos' + id, JSON.stringify(dados.medicos) );
+			$scope.medicos = dados.medicos;
 		})
-	}
+	};
+	$scope.doRefresh = function() {
+		getMedicos.buscar($stateParams.especialidadeId)
+		.then(function(dados){
+			window.localStorage.setItem( 'medicos' + id, JSON.stringify(dados.medicos) );
+			$scope.medicos = dados.medicos;
+		}).finally(function() {
+	       $scope.$broadcast('scroll.refreshComplete');
+	     });
+	};
 })
    
-.controller('medicoCtrl', function($scope, $stateParams, $http) {
+.controller('medicoCtrl', function($scope, $stateParams, getDadosDoMedico) {
 	$scope.medico = [];
-	medico = JSON.parse(window.localStorage.getItem( 'medico'+ $stateParams.medicoId ));
+	var id = $stateParams.medicoId;
+	medico = JSON.parse(window.localStorage.getItem( 'medico'+ id));
 	if(medico != null){
-		console.log(medico);
 		$scope.medico = medico;
 	}else{
-		$http.get('http://apmsantos.org.br/indicadorMedico/webservice/medico/' + $stateParams.medicoId)
-		.success(function(medico){
-			window.localStorage.setItem( 'medico'+ $stateParams.medicoId, JSON.stringify(medico) );
-			$scope.medico = medico;
-		}).error(function(erro){
-			console.log(erro);
+		getDadosDoMedico.buscar(id)
+		.then(function(dados){
+			window.localStorage.setItem( 'medico'+ id, JSON.stringify(dados.medico) );
+			$scope.medico = dados.medico;
 		})
 	}
+	$scope.doRefresh = function() {
+		getDadosDoMedico.buscar(id)
+		.then(function(dados){
+			window.localStorage.setItem( 'medico'+ id, JSON.stringify(dados.medico) );
+			$scope.medico = dados.medico;
+		}).finally(function() {
+	       $scope.$broadcast('scroll.refreshComplete');
+	     });
+	};
 })

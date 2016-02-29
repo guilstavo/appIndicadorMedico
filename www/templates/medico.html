@@ -1,19 +1,20 @@
 <ion-view style="" title="{{medico.nome}}">
     <ion-content class="has-header" overflow-scroll="true" padding="true">
+        <ion-refresher pulling-text="Puxe para atualizar..." on-refresh="doRefresh()"></ion-refresher>
         <div class="list card">
-            <div class="item item-icon-left">
+            <div class="item item-icon-left item-text-wrap">
                 <i class="icon ion-medkit"></i>
                 {{medico.especialidade}}
             </div>
-            <div class="item item-icon-left">
+            <div class="item item-icon-left item-text-wrap">
                 <i class="icon ion-android-pin"></i>
                 {{medico.endereco}}
             </div>
-            <div class="item item-icon-left">
+            <div class="item item-icon-left item-text-wrap">
                 <i class="icon ion-android-call"></i>
                 {{medico.telefone}}
             </div>
-            <div class="item item-icon-left">
+            <div class="item item-icon-left item-text-wrap">
                 <i class="icon ion-clipboard"></i>
                 <strong>CRM:</strong> {{medico.crm}}
             </div>

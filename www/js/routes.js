@@ -24,7 +24,7 @@ angular.module('app.routes', [])
   })
 
   .state('medico', {
-    url: '/medico:medicoId',
+    url: '/medico/:medicoId',
     templateUrl: 'templates/medico.html',
     controller: 'medicoCtrl'
   })

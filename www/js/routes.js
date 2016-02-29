@@ -10,10 +10,10 @@ angular.module('app.routes', [])
     
   
 
-      .state('indicadorMDico', {
+      .state('indicadorMedico', {
     url: '/index',
-    templateUrl: 'templates/indicadorMDico.html',
-    controller: 'indicadorMDicoCtrl'
+    templateUrl: 'templates/indicadorMedico.html',
+    controller: 'indicadorMedicoCtrl'
 
   })
 

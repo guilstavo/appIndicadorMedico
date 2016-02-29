@@ -1,9 +1,11 @@
 angular.module('app.controllers', [])
   
-.controller('indicadorMDicoCtrl', function($scope, $ionicNavBarDelegate, getEspecialidades) {
+.controller('indicadorMedicoCtrl', function($scope, $ionicNavBarDelegate, getEspecialidades) {
 	var isIOS = ionic.Platform.isIOS();
 	$ionicNavBarDelegate.showBackButton(isIOS);
 	//window.localStorage.clear();
+
+	$scope.filtro = '';
 
 	$scope.especialidades = [];
 	especialidades = JSON.parse(window.localStorage.getItem( 'especialidades' ));

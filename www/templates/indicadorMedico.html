@@ -1,0 +1,14 @@
+<ion-view title="Especialidades">
+	<ion-header-bar class="bar-subheader">
+  		<label class="item item-input busca">
+  			<i class="icon ion-search placeholder-icon"></i>
+  			<input ng-model="filtro" ng-model-options="{debounce: 500}" type="search" placeholder="Buscar">
+		</label>
+	</ion-header-bar>
+    <ion-content class="has-header" overflow-scroll="true" padding="false">
+    	<ion-refresher pulling-text="Puxe para atualizar..." on-refresh="doRefresh()"></ion-refresher>
+        <ion-list>
+            <ion-item class="fade" ng-repeat="especialidade in especialidades | filter: filtro" ui-sref="especialidade({especialidadeId: {{especialidade.id}}, especialidadeNome: '{{especialidade.nome}}'})">{{especialidade.nome}}</ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

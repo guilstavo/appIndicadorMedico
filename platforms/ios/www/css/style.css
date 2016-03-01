@@ -1,0 +1,34 @@
+body,
+a.item-content,
+.item{
+	color: #17514d;
+}
+.bar.bar-stable{
+	background-color: #006C67;
+}
+.bar.bar-stable .title{
+	color: #FFF;
+	text-align: center;
+}
+.bar-stable .button,
+.bar-stable .button:hover{
+	color: #FFF;
+}
+.logo{
+	text-align: center;
+}
+.platform-ios .platform-nav {
+    display: block;
+}
+.platform-android .platform-nav {
+    display: none;
+}
+.bar-subheader{
+	background-color: #CAC9CE;
+}
+label.busca{
+	border-radius: 5px;
+}
+label.busca input{
+	height: 19px;
+}

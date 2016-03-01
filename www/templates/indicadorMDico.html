@@ -1,8 +1,0 @@
-<ion-view title="Especialidades">
-    <ion-content class="has-header" overflow-scroll="true" padding="false">
-    	<ion-refresher pulling-text="Puxe para atualizar..." on-refresh="doRefresh()"></ion-refresher>
-        <ion-list style="">
-            <ion-item ng-repeat="especialidade in especialidades" ui-sref="especialidade({especialidadeId: {{especialidade.id}}, especialidadeNome: '{{especialidade.nome}}'})">{{especialidade.nome}}</ion-item>
-        </ion-list>
-    </ion-content>
-</ion-view>

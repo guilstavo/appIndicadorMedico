@@ -10,22 +10,23 @@ angular.module('app.routes', [])
     
   
 
-      .state('indicadorMDico', {
+      .state('indicadorMedico', {
     url: '/index',
-    templateUrl: 'templates/indicadorMDico.html',
-    controller: 'indicadorMDicoCtrl'
+    templateUrl: 'templates/indicadorMedico.html',
+    controller: 'indicadorMedicoCtrl'
+
   })
 
   .state('especialidade', {
-    url: '/listaMedicos',
+    url: '/listaMedicos/:especialidadeId?especialidadeNome',
     templateUrl: 'templates/especialidade.html',
     controller: 'especialidadeCtrl'
   })
 
-  .state('mDico', {
-    url: '/medico',
-    templateUrl: 'templates/mDico.html',
-    controller: 'mDicoCtrl'
+  .state('medico', {
+    url: '/medico/:medicoId',
+    templateUrl: 'templates/medico.html',
+    controller: 'medicoCtrl'
   })
 
 $urlRouterProvider.otherwise('/index')

@@ -1,9 +1,22 @@
 angular.module('app.controllers', [])
   
-.controller('indicadorMedicoCtrl', function($scope, $ionicNavBarDelegate, getEspecialidades) {
+.controller('indicadorMedicoCtrl', function($scope, $ionicNavBarDelegate, getEspecialidades, $ionicFilterBar) {
 	var isIOS = ionic.Platform.isIOS();
 	$ionicNavBarDelegate.showBackButton(isIOS);
 	//window.localStorage.clear();
+
+	var filterBarInstance;
+	$scope.showFilterBar = function () {
+      filterBarInstance = $ionicFilterBar.show({
+        items: $scope.especialidades,
+        update: function (filteredItems, filterText) {
+          $scope.especialidades = filteredItems;
+          if (filterText) {
+            console.log(filterText);
+          }
+        }
+      });
+    };
 
 	$scope.filtro = '';
 

@@ -1,11 +1,12 @@
-<ion-view title="Especialidades">
-  <ion-nav-buttons side="secondary">
-    <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()"></button>
-  </ion-nav-buttons>
-  <ion-content class="has-header" overflow-scroll="true" padding="false">
-  	<ion-refresher pulling-text="Puxe para atualizar..." on-refresh="doRefresh()"></ion-refresher>
-      <ion-list>
-          <ion-item class="fade" ng-repeat="especialidade in especialidades | filter: filtro" ui-sref="especialidade({especialidadeId: {{especialidade.id}}, especialidadeNome: '{{especialidade.nome}}'})">{{especialidade.nome}}</ion-item>
-      </ion-list>
-  </ion-content>
+<ion-view title="Indicador Médico">
+	<ion-nav-buttons side="secondary">
+		<button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-header" overflow-scroll="true" padding="false">
+		<ion-refresher pulling-text="Puxe para atualizar..." on-refresh="doRefresh()"></ion-refresher>
+		<ion-list>
+			<div class="item item-divider">Especialidades</div>
+			<ion-item class="fade" ng-repeat="especialidade in especialidades | filter: filtro" ui-sref="especialidade({especialidadeId: {{especialidade.id}}, especialidadeNome: '{{especialidade.nome}}'})">{{especialidade.nome}}</ion-item>
+		</ion-list>
+	</ion-content>
 </ion-view>

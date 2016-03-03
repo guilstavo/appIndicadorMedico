@@ -2,21 +2,27 @@
   "../bower_components/ionic/scss/ionic",
   "../bower_components/ionic-filter-bar/scss/ionic.filter.bar";
 
+$verde: #00675B;
+$branco: #FFF;
+
 body,
 a.item-content,
 .item{
-	color: #17514d;
+	color: $verde;
+}
+a.item-content{
+	text-transform: uppercase;
 }
 .bar.bar-stable{
-	background-color: #006C67;
+	background-color: $verde;
 }
 .bar.bar-stable .title{
-	color: #FFF;
+	color: $branco;
 	text-align: center;
 }
 .bar-stable .button,
 .bar-stable .button:hover{
-	color: #FFF;
+	color: $branco;
 }
 .logo{
 	text-align: center;
@@ -27,12 +33,10 @@ a.item-content,
 .platform-android .platform-nav {
     display: none;
 }
-.bar-subheader{
-	background-color: #CAC9CE;
-}
-label.busca{
-	border-radius: 5px;
-}
-label.busca input{
-	height: 19px;
+.button.button-verde{
+	background-color: $verde;
+	color: $branco;
+	&.activated{
+		background-color: darken($verde, 5%);
+	}
 }

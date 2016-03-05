@@ -6,7 +6,7 @@
 		<ion-refresher pulling-text="Puxe para atualizar..." on-refresh="doRefresh()"></ion-refresher>
 		<ion-list>
 			<div class="item item-divider">Especialidades</div>
-			<ion-item class="fade" ng-repeat="especialidade in especialidades | filter: filtro" ui-sref="especialidade({especialidadeId: {{especialidade.id}}, especialidadeNome: '{{especialidade.nome}}'})">{{especialidade.nome}}</ion-item>
+			<ion-item class="fade" ng-repeat="especialidade in especialidades" ui-sref="app.especialidade({especialidadeId: {{especialidade.id}}, especialidadeNome: '{{especialidade.nome}}'})">{{especialidade.nome}}</ion-item>
 		</ion-list>
 	</ion-content>
 </ion-view>

@@ -9,27 +9,45 @@ angular.module('app.routes', [])
   $stateProvider
     
   
+  .state('app', {
+    url: '/app',
+    abstract: true,
+    templateUrl: 'templates/menu.html',
+    controller: 'AppCtrl'
+  })
 
-      .state('indicadorMedico', {
+
+  .state('app.indicadorMedico', {
     url: '/index',
-    templateUrl: 'templates/indicadorMedico.html',
-    controller: 'indicadorMedicoCtrl'
-
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/indicadorMedico.html',
+        controller: 'indicadorMedicoCtrl'
+      }
+    }
   })
 
-  .state('especialidade', {
+  .state('app.especialidade', {
     url: '/listaMedicos/:especialidadeId?especialidadeNome',
-    templateUrl: 'templates/especialidade.html',
-    controller: 'especialidadeCtrl'
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/especialidade.html',
+        controller: 'especialidadeCtrl'
+      }
+    }
   })
 
-  .state('medico', {
+  .state('app.medico', {
     url: '/medico/:medicoId',
-    templateUrl: 'templates/medico.html',
-    controller: 'medicoCtrl'
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/medico.html',
+        controller: 'medicoCtrl'
+      }
+    }
   })
 
-$urlRouterProvider.otherwise('/index')
+$urlRouterProvider.otherwise('/app/index')
 
   
 

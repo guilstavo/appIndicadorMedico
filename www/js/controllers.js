@@ -1,4 +1,8 @@
 angular.module('app.controllers', [])
+
+.controller('AppCtrl', function($scope) {
+
+})
   
 .controller('indicadorMedicoCtrl', function($scope, $ionicNavBarDelegate, getEspecialidades, $ionicFilterBar, $ionicLoading) {
 	var isIOS = ionic.Platform.isIOS();
@@ -17,8 +21,6 @@ angular.module('app.controllers', [])
         }
       });
     };
-
-	$scope.filtro = '';
 
 	$scope.especialidades = [];
 	especialidades = JSON.parse(window.localStorage.getItem( 'especialidades' ));
@@ -50,13 +52,14 @@ angular.module('app.controllers', [])
 .controller('especialidadeCtrl', function($scope, $stateParams, getMedicos, $ionicLoading) {
 	var id = $stateParams.especialidadeId;
 	medicos = JSON.parse(window.localStorage.getItem( 'medicos' + id ));
+
+	$scope.nomeEspecialidade = $stateParams.especialidadeNome;
 	if(medicos != null){
 		$scope.medicos = medicos;
 	}else{
 		$ionicLoading.show({
 	      template: '<ion-spinner icon="android"/>'
 	    });
-		$scope.nomeEspecialidade = $stateParams.especialidadeNome;
 		getMedicos.buscar(id)
 		.then(function(dados){
 			window.localStorage.setItem( 'medicos' + id, JSON.stringify(dados.medicos) );
@@ -89,6 +92,7 @@ angular.module('app.controllers', [])
 		.then(function(dados){
 			window.localStorage.setItem( 'medico'+ id, JSON.stringify(dados.medico) );
 			$scope.medico = dados.medico;
+			$scope.$apply();
 			$ionicLoading.hide();
 		})
 	}
@@ -97,6 +101,7 @@ angular.module('app.controllers', [])
 		.then(function(dados){
 			window.localStorage.setItem( 'medico'+ id, JSON.stringify(dados.medico) );
 			$scope.medico = dados.medico;
+			$scope.$apply();
 		}).finally(function() {
 	       $scope.$broadcast('scroll.refreshComplete');
 	     });
@@ -117,10 +122,11 @@ angular.module('app.controllers', [])
 			},
 			function(error){
 		    	alert("Plugin error: "+ error);
-			},
-			{
-	    		preferGoogleMaps: true
 			}
+			// ,
+			// {
+	  //   		preferGoogleMaps: true
+			// }
 		);
 	}
 })

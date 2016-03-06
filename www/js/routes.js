@@ -47,6 +47,16 @@ angular.module('app.routes', [])
     }
   })
 
+  .state('app.favoritos', {
+    url: '/favoritos',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/especialidade.html',
+        controller: 'favoritosCtrl'
+      }
+    }
+  })
+
 $urlRouterProvider.otherwise('/app/index')
 
   

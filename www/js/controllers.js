@@ -97,11 +97,12 @@ angular.module('app.controllers', [])
 		})
 	}
 	var strFavorites = window.localStorage.getItem('favorites');
-	var favorites = strFavorites.split(",");
-	if (favorites == null) {
+	
+	if (strFavorites == null) {
     	var favorites = [0];
     	$scope.favoriteClass = "ion-ios-heart-outline";
 	}else{
+		var favorites = strFavorites.split(",");
 		if(favorites.indexOf(id) < 0){
 			$scope.favoriteClass = "ion-ios-heart-outline";
 		}else{
@@ -159,3 +160,30 @@ angular.module('app.controllers', [])
 		);
 	}
 })
+.controller('favoritosCtrl', function($scope, $stateParams, getDadosDoMedico, $ionicLoading) {
+
+	var strFavorites = window.localStorage.getItem('favorites');
+	
+	if (strFavorites == null) {
+    	alert("Você ainda não possui nenhum favorito na lista.");
+	}else{
+		$ionicLoading.show({
+	    	template: '<ion-spinner icon="android"/>'
+	    });
+	    var favorites = strFavorites.split(",");
+		favorites.splice(0, 1);
+		var medicos = [];
+		favorites.forEach(function(id) {
+		    getDadosDoMedico.buscar(id)
+			.then(function(dados){
+				medico = {medid:dados.medico.medid, nome:dados.medico.nome}
+				medicos.push(medico);
+			})
+		});
+		$scope.medicos = medicos;
+		$ionicLoading.hide();
+		
+	}
+
+})
+

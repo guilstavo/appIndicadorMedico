@@ -1,7 +1,14 @@
-<ion-view style="" title="{{medico.nome}}">
+<ion-view style="">
+    <ion-nav-buttons side="secondary">
+        <button class="button button-icon icon {{favoriteClass}}" ng-click="doFavorite()"></button>
+    </ion-nav-buttons>
     <ion-content class="has-header" overflow-scroll="true" padding="true">
         <ion-refresher pulling-text="Puxe para atualizar..." on-refresh="doRefresh()"></ion-refresher>
         <div class="list card">
+            <div class="item item-icon-left item-text-wrap">
+                <i class="icon ion-person"></i>
+                {{medico.nome}}
+            </div>
             <div class="item item-icon-left item-text-wrap">
                 <i class="icon ion-medkit"></i>
                 {{medico.especialidade}}

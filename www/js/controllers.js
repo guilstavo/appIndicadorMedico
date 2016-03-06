@@ -86,7 +86,7 @@ angular.module('app.controllers', [])
 		$scope.medico = medico;
 	}else{
 		$ionicLoading.show({
-	      template: '<ion-spinner icon="android"/>'
+	    	template: '<ion-spinner icon="android"/>'
 	    });
 		getDadosDoMedico.buscar(id)
 		.then(function(dados){
@@ -96,6 +96,35 @@ angular.module('app.controllers', [])
 			$ionicLoading.hide();
 		})
 	}
+	var strFavorites = window.localStorage.getItem('favorites');
+	var favorites = strFavorites.split(",");
+	if (favorites == null) {
+    	var favorites = [0];
+    	$scope.favoriteClass = "ion-ios-heart-outline";
+	}else{
+		if(favorites.indexOf(id) < 0){
+			$scope.favoriteClass = "ion-ios-heart-outline";
+		}else{
+			$scope.favoriteClass = "ion-ios-heart";
+		}
+	}
+	$scope.favorites = favorites;
+
+	$scope.doFavorite = function() {
+		var id = $stateParams.medicoId;
+		var favorites = $scope.favorites;
+		var index = favorites.indexOf(id);
+		if(index < 0){
+			favorites.push(id);
+			$scope.favoriteClass = "ion-ios-heart";
+		}else{
+			favorites.splice(index, 1);
+			$scope.favoriteClass = "ion-ios-heart-outline";
+		}
+		$scope.favorites = favorites;
+		window.localStorage.setItem( 'favorites', favorites );
+	};
+
 	$scope.doRefresh = function() {
 		getDadosDoMedico.buscar(id)
 		.then(function(dados){

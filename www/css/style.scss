@@ -10,6 +10,27 @@ a.item-content,
 .item{
 	color: $verde;
 }
+.menu-left{
+	a.item-content{
+		text-transform: none;
+	}
+	.scroll-content{
+		background-color: $verde;
+		.item-content,
+		.item{
+			background-color: $verde;
+			color: $branco;
+			border-color: darken($verde, 5%);
+		}
+		.item-logo{
+			padding-bottom: 15px;
+		}
+		.item-first{
+			border: none;
+		}
+	}
+}
+
 a.item-content{
 	text-transform: uppercase;
 }

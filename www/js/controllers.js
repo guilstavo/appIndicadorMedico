@@ -78,7 +78,7 @@ angular.module('app.controllers', [])
 	};
 })
    
-.controller('medicoCtrl', function($scope, $stateParams, getDadosDoMedico, $ionicLoading) {
+.controller('medicoCtrl', function($scope, $stateParams, getDadosDoMedico, $ionicLoading, $ionicModal) {
 	$scope.medico = [];
 	var id = $stateParams.medicoId;
 	medico = JSON.parse(window.localStorage.getItem( 'medico'+ id));
@@ -137,28 +137,52 @@ angular.module('app.controllers', [])
 	     });
 	};
 
-	$scope.showMap = function(){
-		$ionicLoading.show({
-	      template: '<ion-spinner icon="android"/>'
-	    });
-		launchnavigator.navigate(
-			medico.endereco,
-			'',
-			function(){
-		    	//alert("Plugin success");
-		    	$scope.hide = function(){
-			    $ionicLoading.hide();
-			  };
-			},
-			function(error){
-		    	alert("Plugin error: "+ error);
-			}
-			// ,
-			// {
-	  //   		preferGoogleMaps: true
-			// }
-		);
-	}
+	$scope.calendarData = {};
+
+	$ionicModal.fromTemplateUrl('templates/calendar.html', {
+		scope: $scope
+	}).then(function(modal) {
+		$scope.modal = modal;
+	});
+
+	$scope.closeCalendar = function() {
+		$scope.modal.hide();
+	};
+
+	$scope.calendar = function() {
+		$scope.modal.show();
+	};
+
+	$scope.doCalendar = function() {
+		console.log('Doing calendar', $scope.calendarData);
+
+		$timeout(function() {
+			$scope.closeCalendar();
+		}, 1000);
+	};
+
+	// $scope.showMap = function(){
+	// 	$ionicLoading.show({
+	//       template: '<ion-spinner icon="android"/>'
+	//     });
+	// 	launchnavigator.navigate(
+	// 		medico.endereco,
+	// 		'',
+	// 		function(){
+	// 	    	//alert("Plugin success");
+	// 	    	$scope.hide = function(){
+	// 		    $ionicLoading.hide();
+	// 		  };
+	// 		},
+	// 		function(error){
+	// 	    	alert("Plugin error: "+ error);
+	// 		}
+	// 		,
+	// 		{
+	//     		preferGoogleMaps: true
+	// 		}
+	// 	);
+	// }
 })
 .controller('favoritosCtrl', function($scope, $stateParams, getDadosDoMedico, $ionicLoading) {
 

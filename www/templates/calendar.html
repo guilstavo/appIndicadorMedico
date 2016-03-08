@@ -1,0 +1,33 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable">
+    <h1 class="title">Agendar Consulta</h1>
+    <div class="buttons">
+      <button class="button button-clear ion-close-round" ng-click="closeCalendar()"></button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doCalendar()">
+      <div class="list">
+        <label class="item item-input item-text-wrap">
+          <span class="input-label">Título</span>
+          <input type="text" value="Consulta com {{medico.nome}}">
+        </label>
+        <label class="item item-input item-text-wrap">
+          <span class="input-label">Endereço</span>
+          <input type="text" value="{{medico.endereco}}">
+        </label>
+        <label class="item item-input item-text-wrap">
+          <span class="input-label">Data</span>
+          <input type="text">
+        </label>
+        <label class="item item-input item-text-wrap">
+          <span class="input-label">Notas</span>
+          <input type="text">
+        </label>
+        <label class="item">
+          <button class="button button-block button-verde" type="submit">Agendar</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

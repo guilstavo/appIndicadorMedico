@@ -9762,6 +9762,7 @@ a.item-content {
   text-align: center; }
 
 .bar-stable .button,
+.bar-stable .button.button-clear,
 .bar-stable .button:hover {
   color: #FFF; }
 

@@ -9748,9 +9748,8 @@ a.item-content,
     color: #FFF;
     border-color: #004e44; }
   .menu-left .scroll-content .item-logo {
+    padding-top: 35px;
     padding-bottom: 15px; }
-  .menu-left .scroll-content .item-first {
-    border: none; }
 
 a.item-content {
   text-transform: uppercase; }

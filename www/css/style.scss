@@ -23,10 +23,11 @@ a.item-content,
 			border-color: darken($verde, 5%);
 		}
 		.item-logo{
+			padding-top: 35px;
 			padding-bottom: 15px;
 		}
 		.item-first{
-			border: none;
+			// border: none;
 		}
 	}
 }

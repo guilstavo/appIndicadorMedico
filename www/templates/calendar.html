@@ -1,32 +1,31 @@
 <ion-modal-view>
-  <ion-header-bar class="bar-stable">
+  <ion-header-bar class="bar-positive">
     <h1 class="title">Agendar Consulta</h1>
     <div class="buttons">
       <button class="button button-clear ion-close-round" ng-click="closeCalendar()"></button>
     </div>
   </ion-header-bar>
-  <ion-content>
+  <ion-content class="azul">
     <form ng-submit="doCalendar()">
       <div class="list">
         <label class="item item-input item-text-wrap">
-          <span class="input-label">Título</span>
-          <input type="text" value="Consulta com {{medico.nome}}">
+          <input type="text" value="Consulta com {{medico.nome}}" placeholder="Título">
         </label>
         <label class="item item-input item-text-wrap">
-          <span class="input-label">Endereço</span>
-          <input type="text" value="{{medico.endereco}}">
+          <input type="text" value="{{medico.endereco}}" placeholder="Endereço">
         </label>
         <label class="item item-input item-text-wrap">
           <span class="input-label">Data</span>
-          <input type="text">
+          {{datetimeValue| date: "dd/MM/yyyy H:mm"}}
+          <input type="hidden" ion-datetime-picker title="'Selecione a data'" ng-model="datetimeValue" value='{{datetimeValue| date: "dd/MM/yyyy H:mm"}}'>
         </label>
         <label class="item item-input item-text-wrap">
           <span class="input-label">Notas</span>
           <input type="text">
         </label>
-        <label class="item">
-          <button class="button button-block button-verde" type="submit">Agendar</button>
-        </label>
+        <div class="scroll padding">
+          <button class="button button-block button-positive" type="submit">Agendar</button>
+        </div>
       </div>
     </form>
   </ion-content>

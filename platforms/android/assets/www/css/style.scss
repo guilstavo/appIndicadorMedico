@@ -1,0 +1,96 @@
+@import
+  "../bower_components/ionic/scss/ionic",
+  "../bower_components/ionic-filter-bar/scss/ionic.filter.bar";
+
+$verde: #00675B;
+$branco: #FFF;
+$azul: #005581;
+
+body,
+a.item-content,
+.item{
+	color: $verde;
+}
+.menu-left{
+	a.item-content{
+		text-transform: none;
+	}
+	.scroll-content{
+		background-color: $verde;
+		.item-content,
+		.item{
+			background-color: $verde;
+			color: $branco;
+			border-color: darken($verde, 5%);
+		}
+		.item-logo{
+			padding-top: 35px;
+			padding-bottom: 15px;
+		}
+		.item-first{
+			// border: none;
+		}
+	}
+}
+
+a.item-content{
+	text-transform: uppercase;
+}
+.bar.bar-stable{
+	background-color: $verde;
+}
+.bar.bar-stable .title{
+	color: $branco;
+	text-align: center;
+}
+.bar-stable .button,
+.bar-stable .button.button-clear,
+.bar-stable .button:hover{
+	color: $branco;
+}
+.logo{
+	text-align: center;
+}
+.platform-ios .platform-nav {
+    display: block;
+}
+.platform-android .platform-nav {
+    display: none;
+}
+.button.button-verde{
+	background-color: $verde;
+	color: $branco;
+	&.activated{
+		background-color: darken($verde, 5%);
+	}
+}
+.button.button-azul{
+	background-color: $azul;
+	color: $branco;
+	&.activated{
+		background-color: darken($azul, 5%);
+	}
+}
+.button-transparent{
+	background-color:transparent;
+	border: none;
+	color: $azul;
+	box-shadow: none;
+	display: inline-block;
+}
+.ionic-datepicker{
+	color: $azul;
+	.selected_date_full{
+		color: $azul;
+	}
+	.button-clear.color_blue{
+		color: $azul !important;
+	}
+	.date_selected{
+		background-color: $azul !important;
+		color: $branco;
+	}
+}
+.display_none{
+	display: none !important;
+}

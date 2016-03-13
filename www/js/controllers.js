@@ -156,10 +156,76 @@ angular.module('app.controllers', [])
 	$scope.doCalendar = function() {
 		console.log('Doing calendar', $scope.calendarData);
 
-		$timeout(function() {
-			$scope.closeCalendar();
-		}, 1000);
+		// $timeout(function() {
+		// 	$scope.closeCalendar();
+		// }, 1000);
 	};
+	// var disabledDates = [
+ //      new Date()
+ //    ];
+ //     var weekDaysList = ["D", "S", "T", "Q", "Q", "S", "S"];
+ //     var monthList = ["Jan", "Fev", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Set", "Out", "Nov", "Dez"];
+
+	// $scope.datepickerObject = {
+	// 	titleLabel: 'Escolha a Data',  //Optional
+	// 	//todayLabel: 'Hoje',  //Optional
+	// 	closeLabel: 'Cancelar',  //Optional
+	// 	setLabel: 'OK',  //Optional
+	// 	setButtonType : 'button-azul',  //Optional
+	// 	todayButtonType : 'display_none',  //Optional
+	// 	closeButtonType : 'button-azul',  //Optional
+	// 	inputDate: new Date(),  //Optional
+	// 	mondayFirst: true,  //Optional
+	// 	disabledDates: disabledDates, //Optional
+	// 	weekDaysList: weekDaysList, //Optional
+	// 	monthList: monthList, //Optional
+	// 	templateType: 'popup', //Optional
+	// 	showTodayButton: false, //Optional
+	// 	modalHeaderColor: 'bar-stable', //Optional
+	// 	modalFooterColor: 'bar-positive', //Optional
+	// 	from: new Date(), //Optional
+	// 	//to: new Date(2018, 8, 25),  //Optional
+	// 	callback: function (val) {  //Mandatory
+	// 		datePickerCallback(val);
+	// 	},
+	// 	dateFormat: 'dd/MM/yyyy', //Optional
+	// 	closeOnSelect: false, //Optional
+	// };
+
+	
+
+	// var datePickerCallback = function (val) {
+	// 	if (typeof(val) === 'undefined') {
+	// 		console.log('No date selected');
+	// 	} else {
+	// 		console.log('Selected date is : ', val)
+	// 		timePickerObject
+	// 	}
+	// };
+
+	// $scope.timePickerObject = {
+	// 	//inputEpochTime: ((new Date()).getHours() * 60 * 60),  //Optional
+	// 	//step: 15,  //Optional
+	// 	//format: 24,  //Optional
+	// 	titleLabel: 'Selecione o Horário',  //Optional
+	// 	setLabel: 'OK',  //Optional
+	// 	closeLabel: 'Cancelar',  //Optional
+	// 	setButtonType: 'button-azul',  //Optional
+	// 	closeButtonType: 'button-azul',  //Optional
+	// 	callback: function (val) {    //Mandatory
+	// 		timePickerCallback(val);
+	// 	}
+	// };
+
+	// function timePickerCallback(val) {
+	// 	alert('teste');
+	// 	if (typeof (val) === 'undefined') {
+	// 		console.log('Time not selected');
+	// 	} else {
+	// 		var selectedTime = new Date(val * 1000);
+	// 		console.log('Selected epoch is : ', val, 'and the time is ', selectedTime.getUTCHours(), ':', selectedTime.getUTCMinutes(), 'in UTC');
+	// 	}
+	// }
 
 	// $scope.showMap = function(){
 	// 	$ionicLoading.show({
